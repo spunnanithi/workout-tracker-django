@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Exercises
+{% endblock title %}
+
+
+
+{% block content %}
+    <div>
+        <h1>My Exercises</h1>
+        {% if exercises|length == 0 %}
+        <p>There are no exercises at the moment.</p>
+        {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Goal</th>
+                    <th>Sets</th>
+                    <th>Repetitions</th>
+                    <th>Met Goal?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercise in exercises %}
+                <tr>
+                    <td>{{ exercise.name }}</td>
+                    <td>{{ exercise.goal }}</td>
+                    <td>{{ exercise.sets }}</td>
+                    <td>{{ exercise.reps }}</td>
+                    <td>{{ exercise.met_goal|yesno:"Yes!, No :(" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+{% endblock content %}
