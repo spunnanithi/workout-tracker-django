@@ -7,12 +7,12 @@ from exercises.forms import ExerciseForm
 
 
 @login_required
-def list_exercises(request):
+def show_my_exercises(request):
     exercises = Exercise.objects.filter(user=request.user)
     context = {
         "exercises": exercises,
     }
-    return render(request, "exercises/list_exercises.html", context)
+    return render(request, "exercises/show_my_exercises.html", context)
 
 @login_required
 def create_exercise(request):
