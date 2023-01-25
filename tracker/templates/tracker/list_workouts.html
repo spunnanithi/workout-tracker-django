@@ -10,6 +10,9 @@
 {% block content %}
     <div>
         <h1>My Workouts</h1>
+        <p>
+            <a href="{% url 'create_workout' %}">Create a New Workout!</a>
+        </p>
         {% if workouts|length == 0 %}
             <p>Currently, you have no workouts.</p>
         {% else %}
