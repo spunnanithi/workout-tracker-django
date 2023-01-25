@@ -25,9 +25,9 @@
                 <tbody>
                     {% for workout in workouts %}
                         <tr>
-                            <td>{{ workout.created_on }}</td>
                             <td>{{ workout.name }}</td>
                             <td>{{ workout.exercises.all|length }}</td>
+                            <td>{{ workout.created_on }}</td>
                             <td>{{ workout.updated_on }}</td>
                         </tr>
                     {% endfor %}
