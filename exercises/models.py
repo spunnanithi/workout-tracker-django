@@ -13,6 +13,12 @@ class Exercise(models.Model):
     weight = models.PositiveSmallIntegerField(default=0)
     met_goal = models.BooleanField(default=False)
     updated_on = models.DateTimeField(auto_now=True)
+    workout = models.ForeignKey(
+        "tracker.Workout",
+        related_name="exercises",
+        on_delete=models.CASCADE,
+        null=True,
+    )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         related_name="exercises",

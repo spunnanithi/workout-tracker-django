@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
 
+def redirect_to_home(request):
+    return redirect("list_workouts")
+
 urlpatterns = [
+    path("", redirect_to_home, name="home"),
     path("admin/", admin.site.urls),
     path("exercises/", include("exercises.urls")),
     # path("accounts/", include("accounts.urls")),
-    # path("tracker/", include("tracker.urls")),
+    path("tracker/", include("tracker.urls")),
 ]
