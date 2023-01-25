@@ -16,19 +16,19 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Date Created</th>
                         <th>Name</th>
                         <th>Number of Exercises</th>
+                        <th>Date</th>
                         <th>Date Updated</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for workout in workouts %}
                         <tr>
-                            <td>{{ workout.name }}</td>
+                            <td><a href="{% url 'show_my_workout' workout.id %}">{{ workout.name }}</a></td>
                             <td>{{ workout.exercises.all|length }}</td>
-                            <td>{{ workout.created_on }}</td>
-                            <td>{{ workout.updated_on }}</td>
+                            <td>{{ workout.created_on|date:"D, M j, Y" }}</td>
+                            <td>{{ workout.updated_on|date:"D, M j, Y" }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

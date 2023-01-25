@@ -12,3 +12,11 @@ def list_workouts(request):
         "workouts": workouts,
     }
     return render(request, "tracker/list_workouts.html", context)
+
+@login_required
+def show_my_workout(request, id):
+    workout = get_object_or_404(Workout, id=id)
+    context = {
+        "workout": workout,
+    }
+    return render(request, "tracker/detail.html", context)

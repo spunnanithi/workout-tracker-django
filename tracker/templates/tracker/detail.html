@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ workout.name }}
+{% endblock title %}
+
+
+{% block content %}
+    <div>
+        <h1>{{ workout.name }}</h1>
+        <p>{{ workout.description }}</p>
+        <p>Date: {{ workout.created_on }}</p>
+        <p>Updated: {{ workout.updated_on }}</p>
+        <h2>Exercises</h2>
+        {% if workout.exercises.all|length > 0 %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Goal</th>
+                        <th>Weight</th>
+                        <th>Sets</th>
+                        <th>Repetitions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for exercise in workout.exercises.all %}
+                        <tr>
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.goal }}</td>
+                            <td>{{ exercise.weight }}</td>
+                            <td>{{ exercise.sets }}</td>
+                            <td>{{ exercise.reps }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+        <p>There are no exercises. Add some exercises!</p>
+        {% endif %}
+    </div>
+{% endblock content %}

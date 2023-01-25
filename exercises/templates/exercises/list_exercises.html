@@ -20,6 +20,7 @@
                     <th>Goal</th>
                     <th>Sets</th>
                     <th>Repetitions</th>
+                    <th>Weight</th>
                     <th>Met Goal?</th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                     <td>{{ exercise.goal }}</td>
                     <td>{{ exercise.sets }}</td>
                     <td>{{ exercise.reps }}</td>
+                    <td>{{ exercise.weight }}</td>
                     <td>{{ exercise.met_goal|yesno:"Yes!, No :(" }}</td>
                 </tr>
                 {% endfor %}

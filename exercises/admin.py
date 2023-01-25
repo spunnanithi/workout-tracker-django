@@ -15,6 +15,7 @@ class ExerciseAdmin(admin.ModelAdmin):
         "weight",
         "met_goal",
         "updated_on",
+        "workout",
         "user",
         "id",
     )
