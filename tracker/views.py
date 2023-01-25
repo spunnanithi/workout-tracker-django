@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from tracker.models import *
-from tracker.forms import *
+from tracker.models import Workout
+from tracker.forms import WorkoutForm
 
 # Create your views here.
 

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Create an Exercise
+{% endblock title %}
+
+
+
+{% block content %}
+    <div>
+        <h1>Create an Exercise!</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Exercise</button>
+        </form>
+    </div>
+{% endblock content %}

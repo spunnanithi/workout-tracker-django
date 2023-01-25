@@ -13,6 +13,9 @@
         <p>Date: {{ workout.created_on }}</p>
         <p>Updated: {{ workout.updated_on }}</p>
         <h2>Exercises</h2>
+        <p>
+            <a href="{% url 'create_exercise' %}">Create a New Exercise</a>
+        </p>
         {% if workout.exercises.all|length > 0 %}
             <table>
                 <thead>
