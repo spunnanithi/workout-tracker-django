@@ -7,8 +7,9 @@
 
 
 {% block content %}
-    <div>
+    <div class="text-center">
         <h1>{{ exercise.name }}</h1>
+        <h4>Goal: {{ exercise.goal }}</h4>
         <p>
             <a class="btn btn-primary" href="{% url 'edit_exercise' exercise.id %}">Edit Exercise</a>
             <a class="btn btn-primary" href="{% url 'delete_exercise' exercise.id %}">Delete Exercise</a>
@@ -16,7 +17,6 @@
         <table class="table table-secondary table-striped table-hover table-bordered border-dark">
             <thead class="table-dark">
                 <tr class="table-active">
-                    <th scope="col">Goal</th>
                     <th scope="col">Weight</th>
                     <th scope="col">Sets</th>
                     <th scope="col">Repetitions</th>
@@ -24,7 +24,6 @@
             </thead>
             <tbody class="table-group-divider">
                 <tr>
-                    <td>{{ exercise.goal }}</td>
                     <td>{{ exercise.weight }}</td>
                     <td>{{ exercise.sets }}</td>
                     <td>{{ exercise.reps }}</td>
