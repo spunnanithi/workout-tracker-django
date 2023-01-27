@@ -16,16 +16,16 @@
         {% if workouts|length == 0 %}
             <p>Currently, you have no workouts.</p>
         {% else %}
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number of Exercises</th>
-                        <th>Date</th>
-                        <th>Date Updated</th>
+            <table class="table table-secondary table-striped table-hover table-bordered border-dark">
+                <thead class="table-dark">
+                    <tr class="table-active">
+                        <th scope="col">Name</th>
+                        <th scope="col">Number of Exercises</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Date Updated</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                     {% for workout in workouts %}
                         <tr>
                             <td>

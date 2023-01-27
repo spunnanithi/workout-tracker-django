@@ -13,15 +13,15 @@
         {% if exercises|length == 0 %}
         <p>There are no exercises at the moment.</p>
         {% else %}
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Goal</th>
-                    <th>Sets</th>
-                    <th>Repetitions</th>
-                    <th>Weight</th>
-                    <th>Met Goal?</th>
+        <table class="table table-secondary table-striped table-hover table-bordered border-dark">
+            <thead class="table-dark">
+                <tr class="table-active">
+                    <th scope="col">Name</th>
+                    <th scope="col">Goal</th>
+                    <th scope="col">Sets</th>
+                    <th scope="col">Repetitions</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Met Goal?</th>
                 </tr>
             </thead>
             <tbody>
