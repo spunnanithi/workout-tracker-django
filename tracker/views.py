@@ -37,3 +37,18 @@ def create_workout(request):
         "form": form,
     }
     return render(request, "tracker/create_workout.html", context)
+
+@login_required
+def edit_workout(request, id):
+    workout = get_object_or_404(Workout, id=id)
+    if request.method == "POST":
+        form = WorkoutForm(request.POST, instance=workout)
+        if form.is_valid:
+            form.save()
+            return redirect("list_workouts")
+    else:
+        form = WorkoutForm(instance=workout)
+    context = {
+        "form": form,
+    }
+    return render(request, "tracker/edit_workout.html", context)

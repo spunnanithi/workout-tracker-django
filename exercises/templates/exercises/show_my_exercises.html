@@ -9,11 +9,11 @@
 
 {% block content %}
     <div>
-        <h1>My Exercises</h1>
+        <h1>My Exercises for {{ workout.name }}</h1>
         {% if exercises|length == 0 %}
         <p>There are no exercises at the moment.</p>
         {% else %}
-        <table>
+        <table border="1">
             <thead>
                 <tr>
                     <th>Name</th>

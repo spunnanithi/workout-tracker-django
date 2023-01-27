@@ -16,8 +16,14 @@
         <p>
             <a href="{% url 'create_exercise' %}">Create a New Exercise</a>
         </p>
+        <p>
+            <a href="{% url 'edit_workout' workout.id %}">Edit Workout</a>
+        </p>
+        <p>
+            <a href="{% url 'show_my_exercises' workout.id %}">My Exercises</a>
+        </p>
         {% if workout.exercises.all|length > 0 %}
-            <table>
+            <table border="1">
                 <thead>
                     <tr>
                         <th>Name</th>

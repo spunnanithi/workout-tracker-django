@@ -11,12 +11,12 @@
     <div>
         <h1>My Workouts</h1>
         <p>
-            <a href="{% url 'create_workout' %}">Create a New Workout!</a>
+            <a href="{% url 'create_workout' %}">Create a New Workout</a>
         </p>
         {% if workouts|length == 0 %}
             <p>Currently, you have no workouts.</p>
         {% else %}
-            <table>
+            <table border="1">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -28,7 +28,10 @@
                 <tbody>
                     {% for workout in workouts %}
                         <tr>
-                            <td><a href="{% url 'show_my_workout' workout.id %}">{{ workout.name }}</a></td>
+                            <td>
+                                <a href="{% url 'show_my_workout' workout.id %}">{{ workout.name }}</a><br>
+                                <small style="color: #888">{{ workout.description }}</small>
+                            </td>
                             <td>{{ workout.exercises.all|length }}</td>
                             <td>{{ workout.created_on|date:"D, M j, Y" }}</td>
                             <td>{{ workout.updated_on|date:"D, M j, Y" }}</td>

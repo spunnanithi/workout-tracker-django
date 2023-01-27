@@ -10,7 +10,6 @@
     <header>
         <nav>
             {% if user.is_authenticated %}
-            <div><a href="{% url 'show_my_exercises' %}">My Exercises</a></div>
             <div><a href="{% url 'list_workouts' %}">My Workouts</a></div>
             <div><a href="{% url 'user_logout' %}">Logout</a></div>
             {% else %}
