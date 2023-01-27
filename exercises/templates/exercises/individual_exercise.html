@@ -10,7 +10,10 @@
     <div>
         <h1>{{ exercise.name }}</h1>
         <p>
-            <a href="{% url 'delete_exercise' exercise.id %}">Delete This Exercise</a>
+            <a href="{% url 'edit_exercise' exercise.id %}">Edit Exercise</a>
+        </p>
+        <p>
+            <a href="{% url 'delete_exercise' exercise.id %}">Delete Exercise</a>
         </p>
         <table>
             <thead>

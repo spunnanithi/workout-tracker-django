@@ -51,3 +51,18 @@ def delete_exercise(request, id):
         "exercise": exercise,
     }
     return render(request, "exercises/delete_exercise.html", context)
+
+@login_required
+def edit_exercise(request, id):
+    exercise = get_object_or_404(Exercise, id=id)
+    if request.method == "POST":
+        form = ExerciseForm(request.POST, instance=exercise)
+        if form.is_valid:
+            form.save()
+            return redirect("list_workouts")
+    else:
+        form = ExerciseForm(instance=exercise)
+    context = {
+        "form": form,
+    }
+    return render(request, "exercises/edit_exercise.html", context)
