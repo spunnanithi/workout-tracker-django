@@ -8,13 +8,13 @@
 
 
 {% block content %}
-    <div>
+    <div class="text-center">
         <h1>Delete {{ exercise.name }}</h1>
         <p>Are you sure you want to delete {{ exercise.name }}?</p>
         <form method="post" action="{% url 'delete_exercise' exercise.id %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button>Delete</button>
+            <button class="btn btn-danger">Delete</button>
         </form>
     </div>
 {% endblock content %}

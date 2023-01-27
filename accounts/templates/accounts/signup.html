@@ -8,12 +8,12 @@
 
 
 {% block content %}
-    <div>
+    <div class="text-center">
         <h1>Signup</h1>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button>Signup</button>
+            <button class="btn btn-success">Signup</button>
         </form>
     </div>
 {% endblock content %}
