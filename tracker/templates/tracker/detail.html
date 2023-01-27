@@ -36,7 +36,7 @@
                 <tbody>
                     {% for exercise in workout.exercises.all %}
                         <tr>
-                            <td>{{ exercise.name }}</td>
+                            <td><a href="{% url 'individual_exercise' exercise.id %}">{{ exercise.name }}</a></td>
                             <td>{{ exercise.goal }}</td>
                             <td>{{ exercise.weight }}</td>
                             <td>{{ exercise.sets }}</td>

@@ -18,6 +18,14 @@ def show_my_exercises(request, id):
     return render(request, "exercises/show_my_exercises.html", context)
 
 @login_required
+def individual_exercise(request, id):
+    exercise = get_object_or_404(Exercise, id=id)
+    context = {
+        "exercise": exercise,
+    }
+    return render(request, "exercises/individual_exercise.html", context)
+
+@login_required
 def create_exercise(request):
     if request.method == "POST":
         form = ExerciseForm(request.POST)
@@ -25,10 +33,21 @@ def create_exercise(request):
             exercise = form.save(False)
             exercise.user = request.user
             exercise.save()
-            return redirect("show_my_workout")
+            return redirect("list_workouts")
     else:
         form = ExerciseForm()
     context = {
         "form": form,
     }
     return render(request, "exercises/create_exercise.html", context)
+
+@login_required
+def delete_exercise(request, id):
+    exercise = get_object_or_404(Exercise, id=id)
+    if request.method == "POST":
+        exercise.delete()
+        return redirect("list_workouts")
+    context = {
+        "exercise": exercise,
+    }
+    return render(request, "exercises/delete_exercise.html", context)
