@@ -15,11 +15,15 @@
                 <div class="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'list_workouts' %}">My Workouts</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'user_logout' %}">Logout</a></li>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <li class="nav-item"><a class="nav-link link-light active" role="button" href="{% url 'list_workouts' %}">My Workouts</a></li>
+                            <li class="nav-item"><a class="nav-link text-light btn btn-primary"  role="button" href="{% url 'user_logout' %}">Logout</a></li>
+                        </div>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'user_login' %}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'user_signup' %}">Signup</a></li>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <li class="nav-item"><a class="nav-link text-light btn btn-primary" role="button" href="{% url 'user_login' %}">Login</a></li>
+                            <li class="nav-item"><a class="nav-link text-light btn btn-primary" role="button" href="{% url 'user_signup' %}">Signup</a></li>
+                        </div>
                         {% endif %}
                     </ul>
                 </div>

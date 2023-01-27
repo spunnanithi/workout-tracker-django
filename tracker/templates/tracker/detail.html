@@ -7,20 +7,18 @@
 
 
 {% block content %}
-    <div>
+    <div class="text-center">
         <h1>{{ workout.name }}</h1>
-        <p>{{ workout.description }}</p>
-        <p>Date: {{ workout.created_on }}</p>
-        <p>Updated: {{ workout.updated_on }}</p>
+        <h4>{{ workout.description }}</h4>
+        <p>
+            Date: {{ workout.created_on }} <br>
+            Updated: {{ workout.updated_on }}
+        </p>
         <h2>Exercises</h2>
         <p>
-            <a href="{% url 'create_exercise' %}">Create a New Exercise</a>
-        </p>
-        <p>
-            <a href="{% url 'edit_workout' workout.id %}">Edit Workout</a>
-        </p>
-        <p>
-            <a href="{% url 'show_my_exercises' workout.id %}">My Exercises</a>
+            <a class="btn btn-primary" href="{% url 'create_exercise' %}">Create a New Exercise</a>
+            <a class="btn btn-primary" href="{% url 'edit_workout' workout.id %}">Edit Workout</a>
+            <a class="btn btn-primary" href="{% url 'show_my_exercises' workout.id %}">My Exercises</a>
         </p>
         {% if workout.exercises.all|length > 0 %}
             <table class="table table-secondary table-striped table-hover table-bordered border-dark">
