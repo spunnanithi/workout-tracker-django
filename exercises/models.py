@@ -7,7 +7,7 @@ from django.conf import settings
 class Exercise(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=150)
-    goal = models.CharField(max_length=200)
+    goal = models.CharField(max_length=200, default=0)
     sets = models.PositiveSmallIntegerField(default=0)
     reps = models.PositiveSmallIntegerField(default=0)
     weight = models.PositiveSmallIntegerField(default=0)

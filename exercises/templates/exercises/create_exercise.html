@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 
 {% block title %}
@@ -8,11 +9,29 @@
 
 
 {% block content %}
-    <div class="text-center">
-        <h1>Create an Exercise!</h1>
+    <div class="mt-5 d-flex justify-content-center">
         <form method="post">
+            <h1>Create an Exercise!</h1>
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.name|as_crispy_field }}
+            <div class="row">
+                <div class="col-6">
+                    {{ form.goal|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.weight|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    {{ form.sets|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.reps|as_crispy_field }}
+                </div>
+            </div>
+            {{ form.met_goal|as_crispy_field }}
+            {{ form.workout|as_crispy_field }}
             <button class="btn btn-success">Create Exercise</button>
         </form>
     </div>
