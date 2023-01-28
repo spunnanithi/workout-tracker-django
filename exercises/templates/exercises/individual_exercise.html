@@ -14,21 +14,23 @@
             <a class="btn btn-primary" href="{% url 'edit_exercise' exercise.id %}">Edit Exercise</a>
             <a class="btn btn-primary" href="{% url 'delete_exercise' exercise.id %}">Delete Exercise</a>
         </p>
-        <table class="table table-secondary table-striped table-hover table-bordered border-dark">
-            <thead class="table-dark">
-                <tr class="table-active">
-                    <th scope="col">Weight</th>
-                    <th scope="col">Sets</th>
-                    <th scope="col">Repetitions</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr>
-                    <td>{{ exercise.weight }}</td>
-                    <td>{{ exercise.sets }}</td>
-                    <td>{{ exercise.reps }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="container">
+            <table class="table table-secondary table-striped table-hover table-bordered border-dark">
+                <thead class="table-dark">
+                    <tr class="table-active">
+                        <th scope="col">Weight</th>
+                        <th scope="col">Sets</th>
+                        <th scope="col">Repetitions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>{{ exercise.weight }}</td>
+                        <td>{{ exercise.sets }}</td>
+                        <td>{{ exercise.reps }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock content %}

@@ -21,28 +21,30 @@
             <a class="btn btn-primary" href="{% url 'show_my_exercises' workout.id %}">My Exercises</a>
         </p>
         {% if workout.exercises.all|length > 0 %}
-            <table class="table table-secondary table-striped table-hover table-bordered border-dark">
-                <thead class="table-dark">
-                    <tr class="table-active">
-                        <th scope="col">Name</th>
-                        <th scope="col">Goal</th>
-                        <th scope="col">Weight</th>
-                        <th scope="col">Sets</th>
-                        <th scope="col">Repetitions</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    {% for exercise in workout.exercises.all %}
-                        <tr>
-                            <td><a href="{% url 'individual_exercise' exercise.id %}">{{ exercise.name }}</a></td>
-                            <td>{{ exercise.goal }}</td>
-                            <td>{{ exercise.weight }}</td>
-                            <td>{{ exercise.sets }}</td>
-                            <td>{{ exercise.reps }}</td>
+            <div class="container">
+                <table class="table table-secondary table-striped table-hover table-bordered border-dark">
+                    <thead class="table-dark">
+                        <tr class="table-active">
+                            <th scope="col">Name</th>
+                            <th scope="col">Goal</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Sets</th>
+                            <th scope="col">Repetitions</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for exercise in workout.exercises.all %}
+                            <tr>
+                                <td><a href="{% url 'individual_exercise' exercise.id %}">{{ exercise.name }}</a></td>
+                                <td>{{ exercise.goal }}</td>
+                                <td>{{ exercise.weight }}</td>
+                                <td>{{ exercise.sets }}</td>
+                                <td>{{ exercise.reps }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% else %}
         <p>There are no exercises. Add some exercises!</p>
         {% endif %}

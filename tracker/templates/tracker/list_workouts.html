@@ -9,36 +9,38 @@
 
 {% block content %}
     <div>
-        <h1>My Workouts</h1>
-        <p>
+        <h1 class="text-center">My Workouts</h1>
+        <p class="text-center">
             <a class="btn btn-primary" role="button" href="{% url 'create_workout' %}">Create a New Workout</a>
         </p>
         {% if workouts|length == 0 %}
             <p>Currently, you have no workouts.</p>
         {% else %}
-            <table class="table table-secondary table-striped table-hover table-bordered border-dark">
-                <thead class="table-dark">
-                    <tr class="table-active">
-                        <th scope="col">Name</th>
-                        <th scope="col">Number of Exercises</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Date Updated</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    {% for workout in workouts %}
-                        <tr>
-                            <td>
-                                <a href="{% url 'show_my_workout' workout.id %}">{{ workout.name }}</a><br>
-                                <small class="text-muted">{{ workout.description }}</small>
-                            </td>
-                            <td>{{ workout.exercises.all|length }}</td>
-                            <td>{{ workout.created_on|date:"D, M j, Y" }}</td>
-                            <td>{{ workout.updated_on|date:"D, M j, Y" }}</td>
+            <div class="container text-center">
+                <table class="table table-secondary table-striped table-hover table-bordered border-dark">
+                    <thead class="table-dark text-center">
+                        <tr class="table-active">
+                            <th scope="col">Name</th>
+                            <th scope="col">Number of Exercises</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Date Updated</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for workout in workouts %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'show_my_workout' workout.id %}">{{ workout.name }}</a><br>
+                                    <small class="text-muted">{{ workout.description }}</small>
+                                </td>
+                                <td class="text-end">{{ workout.exercises.all|length }}</td>
+                                <td>{{ workout.created_on|date:"D, M j, Y" }}</td>
+                                <td>{{ workout.updated_on|date:"D, M j, Y" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% endif %}
     </div>
 {% endblock content %}
